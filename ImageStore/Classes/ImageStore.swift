@@ -20,6 +20,8 @@ struct ImageStoreConfig {
 
 final class ImageStore: NSObject {
 
+    typealias ImageStoreCompletionHandler = ((UIImage?) -> Void)
+
     private(set) static var shared: ImageStore = ImageStore(ImageStoreConfig())
 
     class func reset(config: ImageStoreConfig = ImageStoreConfig()) {
@@ -29,6 +31,8 @@ final class ImageStore: NSObject {
 
     let config: ImageStoreConfig
     let cache: NSCache<AnyObject, UIImage> = NSCache()
+    let queue: DispatchQueue = DispatchQueue(label: "ImageStore.ImageStore.queue")
+    var completionsByURLString: [String: [ImageStoreCompletionHandler]] = [:]
 
     private init(_ config: ImageStoreConfig) {
         self.config = config
@@ -36,13 +40,37 @@ final class ImageStore: NSObject {
         cache.name = "ImageStore.ImageStore.cache"
     }
 
-    func load(_ url: URL, completion: ((UIImage?) -> Void)?) {
+    func load(_ url: URL, completion: ImageStoreCompletionHandler?) {
         if let cachedImage: UIImage = cache.object(forKey: url.absoluteString as AnyObject) {
             completion?(cachedImage)
             return
         }
 
-        
+        if let completion = completion {
+            if let completions: [ImageStoreCompletionHandler] = completionsByURLString[url.absoluteString] {
+                var newCompletions = completions
+                newCompletions.append(completion)
+                completionsByURLString[url.absoluteString] = newCompletions
+            } else {
+                completionsByURLString[url.absoluteString] = [completion]
+            }
+        }
+
+        queue.async { [weak self] in
+            guard let `self` = self else { return }
+            do {
+                let data = try Data(contentsOf: url)
+                guard let image = UIImage(data: data) else { return }
+                self.cache.setObject(image, forKey: url.absoluteString as AnyObject)
+                if let completions: [ImageStoreCompletionHandler] = self.completionsByURLString[url.absoluteString] {
+                    completions.forEach { $0(image) }
+                    self.completionsByURLString[url.absoluteString] = []
+                }
+            } catch {
+                print("[ImageStore] can't get data from url")
+            }
+        }
+
     }
 
 }
