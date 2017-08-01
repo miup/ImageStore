@@ -1,0 +1,45 @@
+PODS:
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - ImageStore (0.1.0)
+  - Nimble (7.0.1)
+  - Nimble-Snapshots (4.4.0):
+    - Nimble-Snapshots/Core (= 4.4.0)
+  - Nimble-Snapshots/Core (4.4.0):
+    - FBSnapshotTestCase (~> 2.0)
+    - Nimble
+    - Quick
+  - Quick (1.0.0)
+
+DEPENDENCIES:
+  - FBSnapshotTestCase
+  - ImageStore (from `../`)
+  - Nimble (from `https://github.com/Quick/Nimble`, branch `xcode9-beta`)
+  - Nimble-Snapshots
+  - Quick (~> 1.0.0)
+
+EXTERNAL SOURCES:
+  ImageStore:
+    :path: "../"
+  Nimble:
+    :branch: xcode9-beta
+    :git: https://github.com/Quick/Nimble
+
+CHECKOUT OPTIONS:
+  Nimble:
+    :commit: 74558cb66bafa7e4dbf367105834344f3f487b92
+    :git: https://github.com/Quick/Nimble
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: '094f9f314decbabe373b87cc339bea235a63e07a'
+  ImageStore: 649c9b99aec353b3ff8799a3274b59c35a27cdd8
+  Nimble: 1b6670c36e5750169b9e4cc2e9cfa82a7603c69e
+  Nimble-Snapshots: e743439f26c2fa99d8f7e0d7c01c99bcb40aa6f2
+  Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
+
+PODFILE CHECKSUM: 30ee156273d80a24197d703e5b6cbfdc92fd22c7
+
+COCOAPODS: 1.2.1

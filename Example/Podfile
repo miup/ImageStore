@@ -1,0 +1,14 @@
+use_frameworks!
+
+target 'ImageStore_Example' do
+  pod 'ImageStore', :path => '../'
+
+  target 'ImageStore_Tests' do
+    inherit! :search_paths
+
+    pod 'Quick', '~> 1.0.0'
+    pod 'Nimble', git: 'https://github.com/Quick/Nimble', branch: 'xcode9-beta'
+    pod 'FBSnapshotTestCase'
+    pod 'Nimble-Snapshots'
+  end
+end
