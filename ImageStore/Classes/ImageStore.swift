@@ -7,6 +7,16 @@
 
 import Foundation
 
+struct ImageStoreConfig {
+    let maxDownloadSize: UInt64
+    let cacheLimit: UInt64
+
+    init(maxDownloadSize: UInt64 = UInt64(2e8), cacheLimit: UInt64 = UInt64(200e8)) {
+        self.maxDownloadSize = maxDownloadSize
+        self.cacheLimit = cacheLimit
+    }
+}
+
 class ImageStore {
     private(set) static var shared: ImageStore = ImageStore(ImageStoreConfig())
 
@@ -18,15 +28,5 @@ class ImageStore {
 
     private init(_ config: ImageStoreConfig) {
         self.config = config
-    }
-}
-
-struct ImageStoreConfig {
-    let maxDownloadSize: UInt64
-    let cacheLimit: UInt64
-
-    init(maxDownloadSize: UInt64 = UInt64(2e8), cacheLimit: UInt64 = UInt64(200e8)) {
-        self.maxDownloadSize = maxDownloadSize
-        self.cacheLimit = cacheLimit
     }
 }
