@@ -1,8 +1,7 @@
 use_frameworks!
 
 target 'ImageStore_Example' do
-  pod 'ImageStore', :path => '../'
-  pod 'Firebase/Storage'
+    pod 'ImageStore', path: '../'
 
   target 'ImageStore_Tests' do
     inherit! :search_paths
