@@ -7,4 +7,12 @@
 
 import UIKit
 
-extension UIImageView { }
+extension UIImageView {
+    func load(_ url: URL, shouldSetImageConditionBlock: @escaping (() -> Bool) = { return true } ) {
+        ImageStore.shared.load(url) { image in
+            if shouldSetImageConditionBlock() {
+                self.image = image
+            }
+        }
+    }
+}

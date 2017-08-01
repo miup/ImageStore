@@ -5,28 +5,52 @@
 //  Created by miup on 2017/08/01.
 //
 
-import Foundation
+import UIKit
 
 struct ImageStoreConfig {
-    let maxDownloadSize: UInt64
-    let cacheLimit: UInt64
 
-    init(maxDownloadSize: UInt64 = UInt64(2e8), cacheLimit: UInt64 = UInt64(200e8)) {
+    let maxDownloadSize: Int64
+    let cacheLimit: Int64
+
+    init(maxDownloadSize: Int64 = Int64(2e8), cacheLimit: Int64 = Int64(200e8)) {
         self.maxDownloadSize = maxDownloadSize
         self.cacheLimit = cacheLimit
     }
 }
 
-class ImageStore {
+final class ImageStore: NSObject {
+
     private(set) static var shared: ImageStore = ImageStore(ImageStoreConfig())
 
     class func reset(config: ImageStoreConfig = ImageStoreConfig()) {
         shared = ImageStore(config)
     }
 
+
     let config: ImageStoreConfig
+    let cache: NSCache<AnyObject, UIImage> = NSCache()
 
     private init(_ config: ImageStoreConfig) {
         self.config = config
+        cache.totalCostLimit = Int(self.config.cacheLimit)
+        cache.name = "ImageStore.ImageStore.cache"
+    }
+
+    func load(_ url: URL, completion: ((UIImage?) -> Void)?) {
+        if let cachedImage: UIImage = cache.object(forKey: url.absoluteString as AnyObject) {
+            completion?(cachedImage)
+            return
+        }
+
+        
+    }
+
+}
+
+extension ImageStore: NSCacheDelegate {
+    func cache(_ cache: NSCache<AnyObject, AnyObject>, willEvictObject obj: Any) {
+        if let image: UIImage = obj as? UIImage {
+            print(image)
+        }
     }
 }
