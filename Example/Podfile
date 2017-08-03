@@ -1,4 +1,5 @@
 use_frameworks!
+platform :ios, '10.0'
 
 target 'ImageStore_Example' do
     pod 'ImageStore', path: '../'
