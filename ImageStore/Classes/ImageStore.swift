@@ -41,7 +41,7 @@ public final class ImageStore: NSObject {
     var completionsByURLString: [String: [ImageStoreCompletionHandler]] = [:]
     var downloadTaskByURLString: [String: URLSessionDownloadTask] = [:]
 
-    private(set) lazy var cache: NSCache<AnyObject, UIImage> = {
+    public private(set) lazy var cache: NSCache<AnyObject, UIImage> = {
         let cache: NSCache<AnyObject, UIImage> = NSCache()
         cache.name = "ImageStore.ImageStore.cache"
         return cache
