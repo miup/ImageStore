@@ -90,11 +90,11 @@ public final class ImageStore: NSObject {
         if let _task = downloadTaskByURLString[url.absoluteString] {
             task = _task
             task.resume()
-            print("[ImageStore] task resumed.", url)
+            // print("[ImageStore] task resumed.", url)
         } else {
             task = session.downloadTask(with: url)
             task.resume()
-            print("[ImageStore] task stated.", url)
+            // print("[ImageStore] task stated.", url)
             downloadTaskByURLString[url.absoluteString] = task
         }
 
@@ -104,14 +104,14 @@ public final class ImageStore: NSObject {
     open func suspendIfResuming(url: URL) {
         if let task = downloadTaskByURLString[url.absoluteString] {
             task.suspend()
-            print("[ImageStore] task suspended.", url.absoluteString)
+            // print("[ImageStore] task suspended.", url.absoluteString)
         }
     }
 
     open func cancel(url: URL) {
         if let task = downloadTaskByURLString[url.absoluteString] {
             task.cancel()
-            print("[ImageStore] task canceled.", url.absoluteString)
+            // print("[ImageStore] task canceled.", url.absoluteString)
             downloadTaskByURLString.removeValue(forKey: url.absoluteString)
         }
     }
