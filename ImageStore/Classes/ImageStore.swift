@@ -72,7 +72,7 @@ public final class ImageStore: NSObject {
     }
 
     @discardableResult
-    public func load(_ url: URL, completion: ImageStoreCompletionHandler?) -> URLSessionDownloadTask? {
+    public func load(_ url: URL, completion: ImageStoreCompletionHandler? = nil) -> URLSessionDownloadTask? {
         if let cachedImage: UIImage = cache.object(forKey: url.absoluteString as AnyObject) {
             completion?(cachedImage)
             return nil
