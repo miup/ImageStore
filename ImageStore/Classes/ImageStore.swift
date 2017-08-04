@@ -128,9 +128,10 @@ extension ImageStore: URLSessionDownloadDelegate {
                 guard let completions: [ImageStoreCompletionHandler] = completionsByURLString[url.absoluteString] else {
                     return
                 }
-
-                completions.forEach { $0(image) }
-                completionsByURLString[url.absoluteString] = []
+                DispatchQueue.main.async { [weak self] in
+                    completions.forEach { $0(image) }
+                    self?.completionsByURLString[url.absoluteString] = []
+                }
             } else {
                 print("[ImageStore] can't instantiate image from data.")
             }
