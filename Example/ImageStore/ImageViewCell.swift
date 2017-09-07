@@ -15,7 +15,7 @@ class ImageViewCell: UITableViewCell {
 
     var id: String?
 
-    @IBOutlet weak var photoImageView: ImageView!
+    @IBOutlet weak var photoImageView: UIImageView!
 
     override func prepareForReuse() {
         super.prepareForReuse()
