@@ -29,9 +29,9 @@ public final class ImageStore: NSObject {
     }
 
 
-    let config: ImageStoreConfig
-    var completionsByURLString: [String: [ImageStoreCompletionHandler]] = [:]
-    var downloadTaskByURLString: [String: URLSessionDownloadTask] = [:]
+    fileprivate let config: ImageStoreConfig
+    fileprivate var completionsByURLString: [String: [ImageStoreCompletionHandler]] = [:]
+    fileprivate var downloadTaskByURLString: [String: URLSessionDownloadTask] = [:]
 
     public private(set) lazy var cache: NSCache<AnyObject, UIImage> = {
         let cache: NSCache<AnyObject, UIImage> = NSCache()
@@ -39,13 +39,13 @@ public final class ImageStore: NSObject {
         return cache
     }()
 
-    private(set) lazy var queue: OperationQueue = {
+    private lazy var queue: OperationQueue = {
         let queue = OperationQueue()
         queue.name = "ImageStore.ImageStore.queue"
         return queue
     }()
 
-    private(set) lazy var session: URLSession = {
+    private lazy var session: URLSession = {
         let config: URLSessionConfiguration = .default
         config.timeoutIntervalForRequest = 30
         config.timeoutIntervalForResource = 30
@@ -91,13 +91,13 @@ public final class ImageStore: NSObject {
         return task
     }
 
-    open func suspendIfResuming(url: URL) {
+    public func suspendIfResuming(url: URL) {
         if let task = downloadTaskByURLString[url.absoluteString] {
             task.suspend()
         }
     }
 
-    open func cancel(url: URL) {
+    public func cancel(url: URL) {
         if let task = downloadTaskByURLString[url.absoluteString] {
             task.cancel()
             downloadTaskByURLString.removeValue(forKey: url.absoluteString)
