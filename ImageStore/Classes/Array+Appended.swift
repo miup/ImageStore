@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+extension Array {
+    func appended(_ element: Array.Element) -> [Array.Element] {
+        var newArray = self
+        newArray.append(element)
+        return newArray
+    }
+}
