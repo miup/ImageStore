@@ -3,6 +3,7 @@ platform :ios, '10.0'
 
 target 'ImageStore_Example' do
     pod 'ImageStore', path: '../'
+    pod 'FirebaseUI/Storage'
 
   target 'ImageStore_Tests' do
     inherit! :search_paths
