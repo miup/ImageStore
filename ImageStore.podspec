@@ -19,6 +19,7 @@ Pod::Spec.new do |s|
 
   s.description      = <<-DESC
 Image downloader with memory cache supporting.
+If you want more info, look https://github.com/miup/ImageStore.git
                        DESC
 
   s.homepage         = 'https://github.com/miup/ImageStore'
