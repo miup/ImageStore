@@ -12,7 +12,7 @@ public struct ImageStoreConfig {
     let maxDownloadSize: Int64
     let cacheLimit: Int64
 
-    init(maxDownloadSize: Int64 = Int64(2e8), cacheLimit: Int64 = Int64(200e8)) {
+    public init(maxDownloadSize: Int64 = Int64(2e8), cacheLimit: Int64 = Int64(200e8)) {
         self.maxDownloadSize = maxDownloadSize
         self.cacheLimit = cacheLimit
     }
