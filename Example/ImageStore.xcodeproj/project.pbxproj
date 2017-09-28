@@ -16,6 +16,7 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		625BA6CF3E886ECABCB744E0 /* Pods_ImageStore_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0996D109D5217E55774D7C /* Pods_ImageStore_Example.framework */; };
 		8C27E9D11F61120500209694 /* ImageStore+FirebaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C27E9D01F61120500209694 /* ImageStore+FirebaseStorage.swift */; };
+		8C2DE4CB1F7C8DA4000FC4D9 /* UIImageView+FirebaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2DE4CA1F7C8DA4000FC4D9 /* UIImageView+FirebaseStorage.swift */; };
 		8CEAAC351F306878006F7A24 /* ImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEAAC341F306878006F7A24 /* ImageViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		8457EA59B8CCD816B13A148A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		8C27E9D01F61120500209694 /* ImageStore+FirebaseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageStore+FirebaseStorage.swift"; sourceTree = "<group>"; };
+		8C2DE4CA1F7C8DA4000FC4D9 /* UIImageView+FirebaseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+FirebaseStorage.swift"; sourceTree = "<group>"; };
 		8CEAAC341F306878006F7A24 /* ImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewCell.swift; sourceTree = "<group>"; };
 		A67703C2C3050049D2ABC60D /* Pods-ImageStore_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageStore_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ImageStore_Example/Pods-ImageStore_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		C9CC43E320A8D0C5F8B9092C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				8CEAAC341F306878006F7A24 /* ImageViewCell.swift */,
+				8C2DE4CA1F7C8DA4000FC4D9 /* UIImageView+FirebaseStorage.swift */,
 				8C27E9D01F61120500209694 /* ImageStore+FirebaseStorage.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -400,6 +403,7 @@
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				8CEAAC351F306878006F7A24 /* ImageViewCell.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				8C2DE4CB1F7C8DA4000FC4D9 /* UIImageView+FirebaseStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
