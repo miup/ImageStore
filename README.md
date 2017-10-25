@@ -15,6 +15,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ## Requirements
 - Swift3.2
 - iOS10.0 or higher
+- **cocoapods 1.4.0 or higher**
 
 ## Installation
 
@@ -142,11 +143,6 @@ Cancel current url loading.
 
 - `suspendLoading()`<br>
 Suspend current url loading.
-
-### Others
-You can use ImageStore with FirebaseStorage.<br>
-Look [ImageStore/Example/ImageStore/ImageStore+FirebaseStorage.swift](https://github.com/miuP/ImageStore/blob/master/Example/ImageStore/ImageStore%2BFirebaseStorage.swift)<br>
-If podspec can use static framework as dependency, this file will be included this pod.
 
 ## Author
 
