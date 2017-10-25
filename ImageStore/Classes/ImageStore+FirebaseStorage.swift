@@ -6,7 +6,6 @@
 //  Copyright © 2017 CocoaPods. All rights reserved.
 //
 
-import ImageStore
 import FirebaseStorage
 
 extension ImageStore {

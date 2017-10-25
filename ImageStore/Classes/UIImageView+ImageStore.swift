@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 extension UIImageView {
 
@@ -29,7 +30,7 @@ extension UIImageView {
      you can use this method when download a image from URL.
      2nd argument shoulSetImageConditionBlock is closure that returns a condition allow ImageView to display image.
      **/
-    public func load(_ url: URL, shouldSetImageConditionBlock: @escaping (() -> Bool) = { return true } ) {
+    @nonobjc public func load(_ url: URL, shouldSetImageConditionBlock: @escaping (() -> Bool) = { return true } ) {
         _url = url
         _ = ImageStore.shared.load(url) { image in
             if shouldSetImageConditionBlock() {

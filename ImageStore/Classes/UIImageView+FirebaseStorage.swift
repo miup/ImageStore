@@ -7,11 +7,10 @@
 //
 
 import UIKit
-import ImageStore
 import FirebaseStorage
 
 extension UIImageView {
-    public func load(_ storageReference: StorageReference, shouldSetImageConditionBlock: @escaping (() -> Bool) = { return true } ) {
+    @nonobjc public func load(_ storageReference: StorageReference, shouldSetImageConditionBlock: @escaping (() -> Bool) = { return true } ) {
         ImageStore.shared.load(storageReference: storageReference) { [weak self] image in
             guard let `self` = self else { return }
             if shouldSetImageConditionBlock() {
