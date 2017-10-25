@@ -38,4 +38,5 @@ If you want more info, look https://github.com/miup/ImageStore.git
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
+  s.dependency 'Firebase/Storage'
 end
