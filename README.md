@@ -99,7 +99,7 @@ Remove download task with argument URL.
 UIImageView extension for using ImageStore.
 
 #### methods
-- `load(_ url: URL, shouldSetImageConditionBlock: @escaping (() -> Bool))`<br>
+- `load(_ url: URL, placeholderImage: UIImage?, shouldSetImageConditionBlock: @escaping (() -> Bool))`<br>
 Second argument `shoulSetImageConditionBlock` is closure that returns a condition allow ImageView to display image.<br>
 It needs for resusable view (e.g. UITableViewCell, UICollectionViewCell).<br>
 When reused thats views, you may change iamge of cell's ImageView.<br>
