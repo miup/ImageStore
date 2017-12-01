@@ -32,6 +32,7 @@ extension UIImageView {
      **/
     @nonobjc public func load(_ url: URL, shouldSetImageConditionBlock: @escaping (() -> Bool) = { return true } ) {
         _url = url
+        image = nil
         _ = ImageStore.shared.load(url) { image in
             if shouldSetImageConditionBlock() {
                 DispatchQueue.main.async {

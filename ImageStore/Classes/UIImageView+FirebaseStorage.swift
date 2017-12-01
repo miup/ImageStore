@@ -11,6 +11,7 @@ import FirebaseStorage
 
 extension UIImageView {
     @nonobjc public func load(_ storageReference: StorageReference, shouldSetImageConditionBlock: @escaping (() -> Bool) = { return true } ) {
+        image = nil
         ImageStore.shared.load(storageReference: storageReference) { [weak self] image in
             guard let `self` = self else { return }
             if shouldSetImageConditionBlock() {
