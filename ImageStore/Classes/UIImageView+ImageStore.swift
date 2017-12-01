@@ -30,9 +30,9 @@ extension UIImageView {
      you can use this method when download a image from URL.
      2nd argument shoulSetImageConditionBlock is closure that returns a condition allow ImageView to display image.
      **/
-    @nonobjc public func load(_ url: URL, shouldSetImageConditionBlock: @escaping (() -> Bool) = { return true } ) {
+    @nonobjc public func load(_ url: URL, placeholderImage: UIImage? = nil, shouldSetImageConditionBlock: @escaping (() -> Bool) = { return true } ) {
         _url = url
-        image = nil
+        image = placeholderImage
         _ = ImageStore.shared.load(url) { image in
             if shouldSetImageConditionBlock() {
                 DispatchQueue.main.async {
