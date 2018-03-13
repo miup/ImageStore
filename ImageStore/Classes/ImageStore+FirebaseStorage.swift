@@ -9,7 +9,7 @@
 import FirebaseStorage
 
 extension ImageStore {
-    func load(storageReference: StorageReference, completion: ImageStoreCompletionHandler? = nil) {
+    public func load(storageReference: StorageReference, completion: ImageStoreCompletionHandler? = nil) {
         if let cachedImage: UIImage = cache.object(forKey: storageReference.fullPath as AnyObject) {
             completion?(cachedImage)
             return
