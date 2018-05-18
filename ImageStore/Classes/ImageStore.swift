@@ -112,7 +112,9 @@ extension ImageStore: URLSessionDownloadDelegate {
             let data = try Data(contentsOf: location)
             if let image = UIImage(data: data), let url = downloadTask.currentRequest?.url {
                 cache.setObject(image, forKey: url.absoluteString as AnyObject)
-                downloadTaskByURLString.removeValue(forKey: url.absoluteString)
+                if let _ = downloadTaskByURLString[url.absoluteString] {
+                    downloadTaskByURLString.removeValue(forKey: url.absoluteString)
+                }
                 guard let completions: [ImageStoreCompletionHandler] = completionsByURLString[url.absoluteString] else {
                     return
                 }
