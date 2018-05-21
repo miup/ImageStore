@@ -141,7 +141,9 @@ extension ImageStore: URLSessionDelegate {
         guard let _: Error = error else { return }
         guard let downloadTask = task as? URLSessionDownloadTask else { return }
         guard let url: URL = downloadTask.currentRequest?.url else { return }
-        downloadTaskByURLString[url.absoluteString] = nil
+        if let _ = downloadTaskByURLString[url.absoluteString] {
+            downloadTaskByURLString.removeValue(forKey: url.absoluteString)
+        }
     }
 }
 
