@@ -9,10 +9,13 @@ import UIKit
 
 public struct ImageStoreConfig {
 
+    /// default 20MB
     let maxDownloadSize: Int64
+
+    /// default 200MB
     let cacheLimit: Int64
 
-    public init(maxDownloadSize: Int64 = Int64(2e8), cacheLimit: Int64 = Int64(200e8)) {
+    public init(maxDownloadSize: Int64 = Int64(20e6), cacheLimit: Int64 = Int64(200e6)) {
         self.maxDownloadSize = maxDownloadSize
         self.cacheLimit = cacheLimit
     }
@@ -111,7 +114,7 @@ extension ImageStore: URLSessionDownloadDelegate {
         do {
             let data = try Data(contentsOf: location)
             if let image = UIImage(data: data), let url = downloadTask.currentRequest?.url {
-                cache.setObject(image, forKey: url.absoluteString as AnyObject)
+                cache.setObject(image, forKey: url.absoluteString as AnyObject, cost: data.count)
                 if let _ = downloadTaskByURLString[url.absoluteString] {
                     downloadTaskByURLString.removeValue(forKey: url.absoluteString)
                 }
