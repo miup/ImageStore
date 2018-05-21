@@ -47,3 +47,5 @@ Pods/
 *.xcworkspace
 
 # End of https://www.gitignore.io/api/cocoapods
+
+.bundle
