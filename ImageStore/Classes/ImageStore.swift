@@ -11,6 +11,7 @@ public enum ImageStoreError: Error {
     case dataIsNotImage
     case cantGetDataFromURL(URL)
     case taskError(Error?)
+    case cantGetStorageDownloadURL(Error?)
 }
 
 public struct ImageStoreConfig {

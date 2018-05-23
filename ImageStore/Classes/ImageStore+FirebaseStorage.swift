@@ -16,7 +16,10 @@ extension ImageStore {
         }
 
         storageReference.downloadURL { [weak self] (url, error) in
-            guard let url: URL = url else { return }
+            guard let url: URL = url else {
+                completion?(nil, .cantGetStorageDownloadURL(error))
+                return
+            }
             self?.load(url) { (image, error) in
                 guard let image = image else { completion?(nil, error); return  }
                 self?.cache.setObject(image, forKey: storageReference.fullPath as AnyObject)
