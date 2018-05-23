@@ -38,10 +38,18 @@ extension UIImageView {
             image = placeholderImage
         }
 
-        _ = ImageStore.shared.load(url) { (image, _) in
+        _ = ImageStore.shared.load(url) { [weak self] (image, error) in
+            if let error = error {
+                debugPrint("[ImageStore] load image error:", error)
+                return
+            }
+
+            guard let `self` = self else { return }
             if shouldSetImageConditionBlock() {
                 DispatchQueue.main.async {
-                    self.image = image
+                    if let image = image {
+                        self.image = image
+                    }
                 }
             }
         }
