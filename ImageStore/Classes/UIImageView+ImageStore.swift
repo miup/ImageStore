@@ -38,7 +38,7 @@ extension UIImageView {
             image = placeholderImage
         }
 
-        _ = ImageStore.shared.load(url) { image in
+        _ = ImageStore.shared.load(url) { (image, _) in
             if shouldSetImageConditionBlock() {
                 DispatchQueue.main.async {
                     self.image = image
