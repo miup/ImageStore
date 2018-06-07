@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ImageStore'
-  s.version          = '0.4.0'
+  s.version          = '0.4.1'
   s.summary          = 'Image downloader with memory cache supporting.'
 
 # This description is used to generate tags and improve search results.
