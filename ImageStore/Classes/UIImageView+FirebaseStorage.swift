@@ -17,7 +17,12 @@ extension UIImageView {
             image = placeholderImage
         }
 
-        ImageStore.shared.load(storageReference: storageReference) { [weak self] image in
+        ImageStore.shared.load(storageReference: storageReference) { [weak self] (image, error) in
+            if let error = error {
+                debugPrint("[ImageStore] load image error:", error)
+                return
+            }
+
             guard let `self` = self else { return }
             if shouldSetImageConditionBlock() {
                 DispatchQueue.main.async {

@@ -7,12 +7,22 @@
 
 import UIKit
 
+public enum ImageStoreError: Error {
+    case dataIsNotImage
+    case cantGetDataFromURL(URL)
+    case taskError(Error?)
+    case cantGetStorageDownloadURL(Error?)
+}
+
 public struct ImageStoreConfig {
 
+    /// default 20MB
     let maxDownloadSize: Int64
+
+    /// default 200MB
     let cacheLimit: Int64
 
-    public init(maxDownloadSize: Int64 = Int64(2e8), cacheLimit: Int64 = Int64(200e8)) {
+    public init(maxDownloadSize: Int64 = Int64(20e6), cacheLimit: Int64 = Int64(200e6)) {
         self.maxDownloadSize = maxDownloadSize
         self.cacheLimit = cacheLimit
     }
@@ -20,7 +30,7 @@ public struct ImageStoreConfig {
 
 public final class ImageStore: NSObject {
 
-    public typealias ImageStoreCompletionHandler = ((UIImage?) -> Void)
+    public typealias ImageStoreCompletionHandler = ((UIImage?, ImageStoreError?) -> Void)
 
     private(set) public static var shared: ImageStore = ImageStore(ImageStoreConfig())
 
@@ -66,7 +76,7 @@ public final class ImageStore: NSObject {
     @discardableResult
     public func load(_ url: URL, completion: ImageStoreCompletionHandler? = nil) -> URLSessionDownloadTask? {
         if let cachedImage: UIImage = cache.object(forKey: url.absoluteString as AnyObject) {
-            completion?(cachedImage)
+            completion?(cachedImage, nil)
             return nil
         }
 
@@ -111,7 +121,7 @@ extension ImageStore: URLSessionDownloadDelegate {
         do {
             let data = try Data(contentsOf: location)
             if let image = UIImage(data: data), let url = downloadTask.currentRequest?.url {
-                cache.setObject(image, forKey: url.absoluteString as AnyObject)
+                cache.setObject(image, forKey: url.absoluteString as AnyObject, cost: data.count)
                 if let _ = downloadTaskByURLString[url.absoluteString] {
                     downloadTaskByURLString.removeValue(forKey: url.absoluteString)
                 }
@@ -119,14 +129,28 @@ extension ImageStore: URLSessionDownloadDelegate {
                     return
                 }
                 DispatchQueue.main.async { [weak self] in
-                    completions.forEach { $0(image) }
+                    completions.forEach { $0(image, nil) }
                     self?.completionsByURLString[url.absoluteString] = []
                 }
             } else {
                 print("[ImageStore] can't instantiate image from data.")
+                guard let url = downloadTask.currentRequest?.url, let completions: [ImageStoreCompletionHandler] = completionsByURLString[url.absoluteString] else {
+                    return
+                }
+                DispatchQueue.main.async { [weak self] in
+                    completions.forEach { $0(nil, .dataIsNotImage) }
+                    self?.completionsByURLString[url.absoluteString] = []
+                }
             }
         } catch {
             print("[ImageStore] can't get data from url.")
+            guard let url = downloadTask.currentRequest?.url, let completions: [ImageStoreCompletionHandler] = completionsByURLString[url.absoluteString] else {
+                return
+            }
+            DispatchQueue.main.async { [weak self] in
+                completions.forEach { $0(nil, .cantGetDataFromURL(url)) }
+                self?.completionsByURLString[url.absoluteString] = []
+            }
         }
     }
 
@@ -138,10 +162,18 @@ extension ImageStore: URLSessionDelegate {
     }
 
     public func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-        guard let _: Error = error else { return }
         guard let downloadTask = task as? URLSessionDownloadTask else { return }
         guard let url: URL = downloadTask.currentRequest?.url else { return }
-        downloadTaskByURLString[url.absoluteString] = nil
+        guard let completions: [ImageStoreCompletionHandler] = completionsByURLString[url.absoluteString] else {
+            return
+        }
+        if let _ = downloadTaskByURLString[url.absoluteString] {
+            downloadTaskByURLString.removeValue(forKey: url.absoluteString)
+        }
+        DispatchQueue.main.async { [weak self] in
+            completions.forEach { $0(nil, .taskError(error)) }
+            self?.completionsByURLString[url.absoluteString] = []
+        }
     }
 }
 

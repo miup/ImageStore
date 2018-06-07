@@ -18,7 +18,7 @@ PODS:
   - GoogleToolboxForMac/NSData+zlib (2.1.4):
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - GTMSessionFetcher/Core (1.1.15)
-  - ImageStore (0.3.3):
+  - ImageStore (0.4.0):
     - Firebase/Storage (~> 5.0.0)
   - iOSSnapshotTestCase (3.0.0):
     - iOSSnapshotTestCase/SwiftSupport (= 3.0.0)
@@ -51,7 +51,7 @@ SPEC CHECKSUMS:
   FirebaseStorage: 7ca4bb7b58a25fa647b04f524033fc7cb7eb272b
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
-  ImageStore: 93e5e6ff938ea456e58047ac065800f61b973b3b
+  ImageStore: 82d4584ee623d3642b591db229da33f15a41e066
   iOSSnapshotTestCase: 23984ffe05289728d646cbb6a7a10b4fb1c93440
   Nimble: 391f07782af4b37914f9bd7b2ffbb952731b8202
   Nimble-Snapshots: d609110ac4ca76ea9de12b20bc5f0efb2127dd61
