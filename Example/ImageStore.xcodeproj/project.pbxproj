@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C1106958E7D125D5DF9D38A /* Pods_ImageStore_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263B6399F2584735E45DB6F4 /* Pods_ImageStore_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		625BA6CF3E886ECABCB744E0 /* Pods_ImageStore_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0996D109D5217E55774D7C /* Pods_ImageStore_Example.framework */; };
+		64383BA56E6BF124D8CFDBED /* Pods_ImageStore_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B94A2223CC2E3BD1A38672 /* Pods_ImageStore_Tests.framework */; };
+		7B00E4C06D25D4FBCB8208DC /* Pods_ImageStore_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 384831C9CD1448539D4876D3 /* Pods_ImageStore_Example.framework */; };
 		8CEAAC351F306878006F7A24 /* ImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEAAC341F306878006F7A24 /* ImageViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,10 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		263B6399F2584735E45DB6F4 /* Pods_ImageStore_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageStore_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		275C37E98346130310068FFB /* Pods-ImageStore_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageStore_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImageStore_Example/Pods-ImageStore_Example.release.xcconfig"; sourceTree = "<group>"; };
 		2D76D52B99D0DE0234759649 /* Pods-ImageStore_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageStore_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImageStore_Tests/Pods-ImageStore_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		5D0996D109D5217E55774D7C /* Pods_ImageStore_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageStore_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		384831C9CD1448539D4876D3 /* Pods_ImageStore_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageStore_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* ImageStore_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageStore_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,9 +44,10 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		8457EA59B8CCD816B13A148A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		8CEAAC341F306878006F7A24 /* ImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewCell.swift; sourceTree = "<group>"; };
+		A5B94A2223CC2E3BD1A38672 /* Pods_ImageStore_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageStore_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A67703C2C3050049D2ABC60D /* Pods-ImageStore_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageStore_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ImageStore_Example/Pods-ImageStore_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		C9CC43E320A8D0C5F8B9092C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		F74F52840FCE255D1E61353D /* ImageStore.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ImageStore.podspec; path = ../ImageStore.podspec; sourceTree = "<group>"; };
+		F74F52840FCE255D1E61353D /* ImageStore.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ImageStore.podspec; path = ../ImageStore.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F823A1B944DCEDF01DE48852 /* Pods-ImageStore_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageStore_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ImageStore_Tests/Pods-ImageStore_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				625BA6CF3E886ECABCB744E0 /* Pods_ImageStore_Example.framework in Frameworks */,
+				7B00E4C06D25D4FBCB8208DC /* Pods_ImageStore_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,7 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C1106958E7D125D5DF9D38A /* Pods_ImageStore_Tests.framework in Frameworks */,
+				64383BA56E6BF124D8CFDBED /* Pods_ImageStore_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,8 +145,8 @@
 		7B965A852DBB953696A238AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5D0996D109D5217E55774D7C /* Pods_ImageStore_Example.framework */,
-				263B6399F2584735E45DB6F4 /* Pods_ImageStore_Tests.framework */,
+				384831C9CD1448539D4876D3 /* Pods_ImageStore_Example.framework */,
+				A5B94A2223CC2E3BD1A38672 /* Pods_ImageStore_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -296,6 +296,7 @@
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble-Snapshots/Nimble_Snapshots.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+				"${BUILT_PRODUCTS_DIR}/iOSSnapshotTestCase/FBSnapshotTestCase.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -354,15 +355,11 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-ImageStore_Example/Pods-ImageStore_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/ImageStore/ImageStore.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageStore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

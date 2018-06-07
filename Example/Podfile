@@ -8,7 +8,7 @@ target 'ImageStore_Example' do
     inherit! :search_paths
 
     pod 'Quick', '~> 1.0.0'
-    pod 'Nimble', git: 'https://github.com/Quick/Nimble', branch: 'xcode9-beta'
+    pod 'Nimble'
     pod 'FBSnapshotTestCase'
     pod 'Nimble-Snapshots'
   end

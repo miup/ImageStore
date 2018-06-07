@@ -4,79 +4,59 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - Firebase/Core (4.13.0):
-    - FirebaseAnalytics (= 4.2.0)
-    - FirebaseCore (= 4.0.20)
-  - Firebase/Storage (4.13.0):
-    - Firebase/Core
-    - FirebaseStorage (= 2.2.0)
-  - FirebaseAnalytics (4.2.0):
-    - FirebaseCore (~> 4.0)
-    - FirebaseInstanceID (~> 2.0)
+  - Firebase/CoreOnly (5.0.1):
+    - FirebaseCore (= 5.0.1)
+  - Firebase/Storage (5.0.1):
+    - Firebase/CoreOnly
+    - FirebaseStorage (= 3.0.0)
+  - FirebaseCore (5.0.1):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-    - nanopb (~> 0.3)
-  - FirebaseCore (4.0.20):
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseInstanceID (2.0.10):
-    - FirebaseCore (~> 4.0)
-  - FirebaseStorage (2.2.0):
-    - FirebaseAnalytics (~> 4.1)
-    - FirebaseCore (~> 4.0)
+  - FirebaseStorage (3.0.0):
+    - FirebaseCore (~> 5.0)
     - GTMSessionFetcher/Core (~> 1.1)
   - GoogleToolboxForMac/Defines (2.1.4)
   - GoogleToolboxForMac/NSData+zlib (2.1.4):
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - GTMSessionFetcher/Core (1.1.15)
-  - ImageStore (0.3.6):
-    - Firebase/Storage (~> 4.13.0)
-  - nanopb (0.3.8):
-    - nanopb/decode (= 0.3.8)
-    - nanopb/encode (= 0.3.8)
-  - nanopb/decode (0.3.8)
-  - nanopb/encode (0.3.8)
-  - Nimble (7.0.1)
-  - Nimble-Snapshots (4.4.0):
-    - Nimble-Snapshots/Core (= 4.4.0)
-  - Nimble-Snapshots/Core (4.4.0):
-    - FBSnapshotTestCase (~> 2.0)
-    - Nimble
-    - Quick
+  - ImageStore (0.4.0):
+    - Firebase/Storage (~> 5.0.0)
+  - iOSSnapshotTestCase (3.0.0):
+    - iOSSnapshotTestCase/SwiftSupport (= 3.0.0)
+  - iOSSnapshotTestCase/Core (3.0.0)
+  - iOSSnapshotTestCase/SwiftSupport (3.0.0):
+    - iOSSnapshotTestCase/Core
+  - Nimble (7.1.1)
+  - Nimble-Snapshots (6.7.0):
+    - Nimble-Snapshots/Core (= 6.7.0)
+  - Nimble-Snapshots/Core (6.7.0):
+    - iOSSnapshotTestCase (~> 3.0)
+    - Nimble (~> 7.0)
   - Quick (1.0.0)
 
 DEPENDENCIES:
   - FBSnapshotTestCase
   - ImageStore (from `../`)
-  - Nimble (from `https://github.com/Quick/Nimble`, branch `xcode9-beta`)
+  - Nimble
   - Nimble-Snapshots
   - Quick (~> 1.0.0)
 
 EXTERNAL SOURCES:
   ImageStore:
     :path: ../
-  Nimble:
-    :branch: xcode9-beta
-    :git: https://github.com/Quick/Nimble
-
-CHECKOUT OPTIONS:
-  Nimble:
-    :commit: 74558cb66bafa7e4dbf367105834344f3f487b92
-    :git: https://github.com/Quick/Nimble
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  Firebase: 5ec5e863d269d82d66b4bf56856726f8fb8f0fb3
-  FirebaseAnalytics: 7ef69e76a5142f643aeb47c780e1cdce4e23632e
-  FirebaseCore: 90cb1c53d69b556f112a1bf72b5fcfaad7650790
-  FirebaseInstanceID: 8d20d890d65c917f9f7d9950b6e10a760ad34321
-  FirebaseStorage: 0c223481c8f89ed300cf1239ddd2d9833622c65f
+  Firebase: d6861c2059d8c32d1e6dd8932e22ada346d90a3a
+  FirebaseCore: cafc814b2d84fc8733f09e653041cc2165332ad7
+  FirebaseStorage: 7ca4bb7b58a25fa647b04f524033fc7cb7eb272b
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
-  ImageStore: afbfaa29d5673c76fc09783279396578026dbc10
-  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  Nimble: 1b6670c36e5750169b9e4cc2e9cfa82a7603c69e
-  Nimble-Snapshots: e743439f26c2fa99d8f7e0d7c01c99bcb40aa6f2
+  ImageStore: 82d4584ee623d3642b591db229da33f15a41e066
+  iOSSnapshotTestCase: 23984ffe05289728d646cbb6a7a10b4fb1c93440
+  Nimble: 391f07782af4b37914f9bd7b2ffbb952731b8202
+  Nimble-Snapshots: d609110ac4ca76ea9de12b20bc5f0efb2127dd61
   Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
 
-PODFILE CHECKSUM: 300445f7b0b950b2ea8dd0127a2e6c66005bcb1a
+PODFILE CHECKSUM: ada343efa260c7a3e16b4d5ee0e82e632014c30d
 
-COCOAPODS: 1.4.0.beta.2
+COCOAPODS: 1.4.0
