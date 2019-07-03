@@ -1,5 +1,5 @@
 use_frameworks!
-platform :ios, '10.0'
+platform :ios, '11.0'
 
 target 'ImageStore_Example' do
     pod 'ImageStore', path: '../'
@@ -7,7 +7,7 @@ target 'ImageStore_Example' do
   target 'ImageStore_Tests' do
     inherit! :search_paths
 
-    pod 'Quick', '~> 1.0.0'
+    pod 'Quick'
     pod 'Nimble'
     pod 'FBSnapshotTestCase'
     pod 'Nimble-Snapshots'

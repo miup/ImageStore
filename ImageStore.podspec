@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ImageStore'
-  s.version          = '0.4.3'
+  s.version          = '0.5.0'
   s.summary          = 'Image downloader with memory cache supporting.'
 
 # This description is used to generate tags and improve search results.
@@ -29,7 +29,7 @@ If you want more info, look https://github.com/miup/ImageStore.git
   s.source           = { :git => 'https://github.com/miup/ImageStore.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '11.0'
 
   s.source_files = 'ImageStore/Classes/**/*'
   # s.resource_bundles = {
@@ -40,5 +40,5 @@ If you want more info, look https://github.com/miup/ImageStore.git
   # s.frameworks = 'UIKit', 'MapKit'
   s.requires_arc = true
   s.static_framework = true
-  s.dependency 'Firebase/Storage', '~>5.0'
+  s.dependency 'Firebase/Storage', '~>6.0'
 end
