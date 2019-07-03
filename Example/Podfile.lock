@@ -4,25 +4,25 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - Firebase/CoreOnly (5.20.2):
-    - FirebaseCore (= 5.4.1)
-  - Firebase/Storage (5.20.2):
+  - Firebase/CoreOnly (6.3.0):
+    - FirebaseCore (= 6.0.3)
+  - Firebase/Storage (6.3.0):
     - Firebase/CoreOnly
-    - FirebaseStorage (= 3.1.1)
+    - FirebaseStorage (~> 3.2.1)
   - FirebaseAuthInterop (1.0.0)
-  - FirebaseCore (5.4.1):
-    - GoogleUtilities/Environment (~> 5.2)
-    - GoogleUtilities/Logger (~> 5.2)
-  - FirebaseStorage (3.1.1):
+  - FirebaseCore (6.0.3):
+    - GoogleUtilities/Environment (~> 6.0)
+    - GoogleUtilities/Logger (~> 6.0)
+  - FirebaseStorage (3.2.1):
     - FirebaseAuthInterop (~> 1.0)
-    - FirebaseCore (~> 5.2)
+    - FirebaseCore (~> 6.0)
     - GTMSessionFetcher/Core (~> 1.1)
-  - GoogleUtilities/Environment (5.8.0)
-  - GoogleUtilities/Logger (5.8.0):
+  - GoogleUtilities/Environment (6.2.1)
+  - GoogleUtilities/Logger (6.2.1):
     - GoogleUtilities/Environment
   - GTMSessionFetcher/Core (1.2.2)
   - ImageStore (0.4.3):
-    - Firebase/Storage (~> 5.0)
+    - Firebase/Storage (~> 6.0)
   - iOSSnapshotTestCase (6.1.0):
     - iOSSnapshotTestCase/SwiftSupport (= 6.1.0)
   - iOSSnapshotTestCase/Core (6.1.0)
@@ -63,13 +63,13 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  Firebase: 0c8cf33f266410c61ab3e2265cfa412200351d9c
+  Firebase: 8432d732974498afd5987e9001a05f90f1a3d625
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
-  FirebaseCore: f1a9a8be1aee4bf71a2fc0f4096df6788bdfda61
-  FirebaseStorage: 6162ef4322502b818d9de0ec552f5226d283de43
-  GoogleUtilities: 04fce34bcd5620c1ee76fb79172105c74a4df335
+  FirebaseCore: 68f8a7f50cdae542715d4e86afa37c4067217dcb
+  FirebaseStorage: 926d41552072b9fee67aa645760f05f87b7ce604
+  GoogleUtilities: c7a0b08bda3bf808be823ed151f0e28ac6866e71
   GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
-  ImageStore: 683b080a8ab645da3e636366d834b527fe12b366
+  ImageStore: d4e4a17287b2162f91cb43fbfa6d6ea53495efdf
   iOSSnapshotTestCase: 30d540b0c8feb9d7f8ff97acc25a3804b48ee264
   Nimble: 622629381bda1dd5678162f21f1368cec7cbba60
   Nimble-Snapshots: 2ec985281eef0eb9fc69a469deee851363a50d0e

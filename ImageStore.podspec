@@ -40,5 +40,5 @@ If you want more info, look https://github.com/miup/ImageStore.git
   # s.frameworks = 'UIKit', 'MapKit'
   s.requires_arc = true
   s.static_framework = true
-  s.dependency 'Firebase/Storage', '~>5.0'
+  s.dependency 'Firebase/Storage', '~>6.0'
 end
