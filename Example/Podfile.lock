@@ -4,59 +4,77 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - Firebase/CoreOnly (5.6.0):
-    - FirebaseCore (= 5.1.1)
-  - Firebase/Storage (5.6.0):
+  - Firebase/CoreOnly (5.20.2):
+    - FirebaseCore (= 5.4.1)
+  - Firebase/Storage (5.20.2):
     - Firebase/CoreOnly
-    - FirebaseStorage (= 3.0.0)
-  - FirebaseCore (5.1.1):
+    - FirebaseStorage (= 3.1.1)
+  - FirebaseAuthInterop (1.0.0)
+  - FirebaseCore (5.4.1):
+    - GoogleUtilities/Environment (~> 5.2)
     - GoogleUtilities/Logger (~> 5.2)
-  - FirebaseStorage (3.0.0):
-    - FirebaseCore (~> 5.0)
+  - FirebaseStorage (3.1.1):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 5.2)
     - GTMSessionFetcher/Core (~> 1.1)
-  - GoogleUtilities/Environment (5.2.2)
-  - GoogleUtilities/Logger (5.2.2):
+  - GoogleUtilities/Environment (5.8.0)
+  - GoogleUtilities/Logger (5.8.0):
     - GoogleUtilities/Environment
-  - GTMSessionFetcher/Core (1.2.0)
-  - ImageStore (0.4.2):
+  - GTMSessionFetcher/Core (1.2.2)
+  - ImageStore (0.4.3):
     - Firebase/Storage (~> 5.0)
-  - iOSSnapshotTestCase (3.0.0):
-    - iOSSnapshotTestCase/SwiftSupport (= 3.0.0)
-  - iOSSnapshotTestCase/Core (3.0.0)
-  - iOSSnapshotTestCase/SwiftSupport (3.0.0):
+  - iOSSnapshotTestCase (6.1.0):
+    - iOSSnapshotTestCase/SwiftSupport (= 6.1.0)
+  - iOSSnapshotTestCase/Core (6.1.0)
+  - iOSSnapshotTestCase/SwiftSupport (6.1.0):
     - iOSSnapshotTestCase/Core
-  - Nimble (7.1.3)
-  - Nimble-Snapshots (6.7.1):
-    - Nimble-Snapshots/Core (= 6.7.1)
-  - Nimble-Snapshots/Core (6.7.1):
-    - iOSSnapshotTestCase (~> 3.0)
-    - Nimble (~> 7.0)
-  - Quick (1.0.0)
+  - Nimble (8.0.2)
+  - Nimble-Snapshots (7.1.0):
+    - Nimble-Snapshots/Core (= 7.1.0)
+  - Nimble-Snapshots/Core (7.1.0):
+    - iOSSnapshotTestCase (~> 6.0)
+    - Nimble (~> 8.0)
+  - Quick (2.1.0)
 
 DEPENDENCIES:
   - FBSnapshotTestCase
   - ImageStore (from `../`)
   - Nimble
   - Nimble-Snapshots
-  - Quick (~> 1.0.0)
+  - Quick
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FBSnapshotTestCase
+    - Firebase
+    - FirebaseAuthInterop
+    - FirebaseCore
+    - FirebaseStorage
+    - GoogleUtilities
+    - GTMSessionFetcher
+    - iOSSnapshotTestCase
+    - Nimble
+    - Nimble-Snapshots
+    - Quick
 
 EXTERNAL SOURCES:
   ImageStore:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  Firebase: 75ea9e232eefa158c1049028030b8f661a2ccb62
-  FirebaseCore: cb9ee75e0894def766167c95a4d5a14b1c138269
-  FirebaseStorage: 7ca4bb7b58a25fa647b04f524033fc7cb7eb272b
-  GoogleUtilities: 06b66f9567769a7958db20a92f0128b2843e49d5
-  GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
-  ImageStore: 61646cc7a455063ff148e73fbb7a0c36fde36317
-  iOSSnapshotTestCase: 23984ffe05289728d646cbb6a7a10b4fb1c93440
-  Nimble: 2839b01d1b31f6a6a7777a221f0d91cf52e8e27b
-  Nimble-Snapshots: 7ab1d5fd4a794b983805c6f6b8091fb00d772754
-  Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
+  Firebase: 0c8cf33f266410c61ab3e2265cfa412200351d9c
+  FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
+  FirebaseCore: f1a9a8be1aee4bf71a2fc0f4096df6788bdfda61
+  FirebaseStorage: 6162ef4322502b818d9de0ec552f5226d283de43
+  GoogleUtilities: 04fce34bcd5620c1ee76fb79172105c74a4df335
+  GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
+  ImageStore: 683b080a8ab645da3e636366d834b527fe12b366
+  iOSSnapshotTestCase: 30d540b0c8feb9d7f8ff97acc25a3804b48ee264
+  Nimble: 622629381bda1dd5678162f21f1368cec7cbba60
+  Nimble-Snapshots: 2ec985281eef0eb9fc69a469deee851363a50d0e
+  Quick: 4be43f6634acfa727dd106bdf3929ce125ffa79d
 
-PODFILE CHECKSUM: ada343efa260c7a3e16b4d5ee0e82e632014c30d
+PODFILE CHECKSUM: 8b379827edd1b5a1d290b17f57735aa79281985f
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.7.3
