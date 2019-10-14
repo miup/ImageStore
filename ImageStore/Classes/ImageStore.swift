@@ -33,6 +33,7 @@ public final class ImageStore: NSObject {
     public typealias ImageStoreCompletionHandler = ((UIImage?, ImageStoreError?) -> Void)
 
     private(set) public static var shared: ImageStore = ImageStore(ImageStoreConfig())
+    private let ioQueue = DispatchQueue(label: "ImageStore_Serial_Queue")
 
     public class func reset(config: ImageStoreConfig = ImageStoreConfig()) {
         shared = ImageStore(config)
@@ -89,31 +90,45 @@ public final class ImageStore: NSObject {
         }
 
         let task: URLSessionDownloadTask
-        if let _task = downloadTaskByURLString[url.absoluteString] {
+        if let _task = getDownloadTask(for: url) {
             task = _task
             task.resume()
         } else {
             task = session.downloadTask(with: url)
             task.resume()
-            downloadTaskByURLString[url.absoluteString] = task
+            setDownloadTask(task, for: url)
         }
 
         return task
     }
 
     public func suspendIfResuming(url: URL) {
-        if let task = downloadTaskByURLString[url.absoluteString] {
-            task.suspend()
-        }
+        getDownloadTask(for: url)?.suspend()
     }
 
     public func cancel(url: URL) {
-        if let task = downloadTaskByURLString[url.absoluteString] {
+
+        if let task = getDownloadTask(for: url) {
             task.cancel()
+            removeDownloadTask(for: url)
+        }
+    }
+
+    private func getDownloadTask(for url: URL) -> URLSessionDownloadTask? {
+        return ioQueue.sync { downloadTaskByURLString[url.absoluteString] }
+    }
+
+    private func removeDownloadTask(for url: URL) {
+        _ = ioQueue.sync {
             downloadTaskByURLString.removeValue(forKey: url.absoluteString)
         }
     }
 
+    private func setDownloadTask(_ task: URLSessionDownloadTask, for url: URL) {
+        _ = ioQueue.sync {
+            downloadTaskByURLString[url.absoluteString] = task
+        }
+    }
 }
 
 extension ImageStore: URLSessionDownloadDelegate {
@@ -122,8 +137,8 @@ extension ImageStore: URLSessionDownloadDelegate {
             let data = try Data(contentsOf: location)
             if let image = UIImage(data: data), let url = downloadTask.currentRequest?.url {
                 cache.setObject(image, forKey: url.absoluteString as AnyObject, cost: data.count)
-                if let _ = downloadTaskByURLString[url.absoluteString] {
-                    downloadTaskByURLString.removeValue(forKey: url.absoluteString)
+                if let _ = getDownloadTask(for: url) {
+                    removeDownloadTask(for: url)
                 }
                 guard let completions: [ImageStoreCompletionHandler] = completionsByURLString[url.absoluteString] else {
                     return
@@ -167,8 +182,8 @@ extension ImageStore: URLSessionDelegate {
         guard let completions: [ImageStoreCompletionHandler] = completionsByURLString[url.absoluteString] else {
             return
         }
-        if let _ = downloadTaskByURLString[url.absoluteString] {
-            downloadTaskByURLString.removeValue(forKey: url.absoluteString)
+        if let _ = getDownloadTask(for: url) {
+            removeDownloadTask(for: url)
         }
         DispatchQueue.main.async { [weak self] in
             completions.forEach { $0(nil, .taskError(error)) }
