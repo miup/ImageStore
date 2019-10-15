@@ -21,7 +21,7 @@ PODS:
   - GoogleUtilities/Logger (6.2.1):
     - GoogleUtilities/Environment
   - GTMSessionFetcher/Core (1.2.2)
-  - ImageStore (0.5.0):
+  - ImageStore (0.6.0):
     - Firebase/Storage (~> 6.0)
   - iOSSnapshotTestCase (6.1.0):
     - iOSSnapshotTestCase/SwiftSupport (= 6.1.0)
@@ -44,7 +44,7 @@ DEPENDENCIES:
   - Quick
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - FBSnapshotTestCase
     - Firebase
     - FirebaseAuthInterop
@@ -69,7 +69,7 @@ SPEC CHECKSUMS:
   FirebaseStorage: 926d41552072b9fee67aa645760f05f87b7ce604
   GoogleUtilities: c7a0b08bda3bf808be823ed151f0e28ac6866e71
   GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
-  ImageStore: 74aa70bb0923cd76313e633aa6386122ed784e13
+  ImageStore: b5f6ac827f5c097172596de9bc0b4e03ce59bfa9
   iOSSnapshotTestCase: 30d540b0c8feb9d7f8ff97acc25a3804b48ee264
   Nimble: 622629381bda1dd5678162f21f1368cec7cbba60
   Nimble-Snapshots: 2ec985281eef0eb9fc69a469deee851363a50d0e
@@ -77,4 +77,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 8b379827edd1b5a1d290b17f57735aa79281985f
 
-COCOAPODS: 1.7.3
+COCOAPODS: 1.8.3
