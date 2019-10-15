@@ -168,7 +168,6 @@ extension ImageStore: URLSessionDownloadDelegate {
             }
         }
     }
-
 }
 
 extension ImageStore: URLSessionDelegate {
@@ -179,6 +178,7 @@ extension ImageStore: URLSessionDelegate {
     public func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         guard let downloadTask = task as? URLSessionDownloadTask else { return }
         guard let url: URL = downloadTask.currentRequest?.url else { return }
+        guard let error = error else { return }
         guard let completions: [ImageStoreCompletionHandler] = completionsByURLString[url.absoluteString] else {
             return
         }
