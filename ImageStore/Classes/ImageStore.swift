@@ -75,6 +75,18 @@ public final class ImageStore: NSObject {
     }
 
     @discardableResult
+    public func load(_ url: URL, completion: @escaping (Result<UIImage, ImageStoreError>) -> Void) -> URLSessionDownloadTask? {
+        load(url, completion: { (image, error) in
+                if let image = image {
+                    completion(.success(image))
+                } else if let error = error {
+                    completion(.failure(error))
+                }
+            }
+        )
+    }
+
+    @discardableResult
     public func load(_ url: URL, completion: ImageStoreCompletionHandler? = nil) -> URLSessionDownloadTask? {
         if let cachedImage: UIImage = cache.object(forKey: url.absoluteString as AnyObject) {
             completion?(cachedImage, nil)
